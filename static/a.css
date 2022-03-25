@@ -1,0 +1,165 @@
+@media only screen and (min-width:720px){
+    .one{
+        border: 1px dashed gray;
+        width: 40%;
+        padding: 3%;
+        margin-left: 32%;
+        margin-top: 10%;
+    }
+    
+    .one .form-control{
+        width: 88%;
+    }
+    
+    .one .btn{
+        width: 88%;
+    }
+
+    .iframe1{
+        display: flex;
+        margin-top: -8px;
+    }
+     
+
+    .sidebar{
+        background-color: cadetblue;
+    }
+    .sidebar li{
+        list-style: none;
+        color:red;
+        margin-bottom:12% ;
+        margin-left: -20%;
+        margin-top: 3%;
+    }
+
+    .sidebar a{
+        margin-bottom:1% ;
+        color:white;
+    }
+
+    h5{
+        background-color: hsl(0, 0%, 96%) ;
+        padding: 1%;
+        
+    }
+
+           .sidebar ul{
+               margin-top: 12%;
+           }
+    .sidebar{
+        width: 15%;
+        color:red;
+    }     
+    .X {
+        border:1px solid whitesmoke;
+        width: 15%;
+        padding: 0.6%;
+        margin-left: 3%;
+        margin-top: 1%;
+        border-radius: 4px;
+        background-color: rgba(200, 201, 199, 0.137);
+        text-align: center;
+    }
+    .XYZ{
+        display: flex;
+        margin-left: 5%;
+    }
+    .XYZ a{
+        text-align: center;
+    }
+.portal{
+    background-color: lightcyan;
+    height: 40em;
+}
+    .reg{
+        
+        padding: 0.5% ;
+        margin-top: 1%;
+        width: 90%;
+        margin-left: 5%;
+        text-align: center;
+        background-color: pink;
+
+    }
+
+    table {
+        margin-left: 6%;
+        margin-right: 4%;
+overflow: auto;  
+  }
+
+  .y{border: 1px solid rgb(129, 121, 121) ;
+     padding:1%;
+     width: 28%;
+    margin-right: 38%;
+}
+.y1{border: 1px solid rgb(129, 121, 121) ;
+    padding:1%;
+    width: 28%;
+   margin-right: 3%;
+}
+.xy{margin-left: 5%;
+display: flex;}
+.yInner{
+    background-color: gray;
+    border-bottom: 1px solid gray;
+    margin-top: -3.8%;
+    width: 108%;
+    margin-left: -4%;
+    height: 23px;
+    
+}
+
+.stats{
+    background-color: gray;
+    width:89%;
+    margin-left: 5%;
+    padding: 8px;
+}
+
+.register .form-control{
+    width:195%;
+}
+.onee{
+    float: left;
+    margin-left: 20%;
+}
+.two{
+    margin-right: 30%;
+    float:right;
+    margin-top: -0.2%;
+}
+h3{
+    color:red;
+}
+
+.registe .btn{
+    width:40%;
+    margin-left:32% ;
+}
+
+.lft{
+    background-color: rgb(28, 15, 104);
+}
+
+
+body{
+    background-color: brown;
+}
+
+
+.reg{
+        
+    padding: 0.5% ;
+    margin-top: 1%;
+    width: 90%;
+    margin-left: 5%;
+    text-align: center;
+    background-color: pink;
+
+}
+.register .form-control{
+    width:195%;
+}
+
+    }

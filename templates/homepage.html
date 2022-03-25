@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+
+
+<div class="span" style="display: flex;">
+
+    <div class="A" style="margin-right: 20px;">
+    {% for data1 in data.Programmes %}
+
+{{data1|add:"1"}} <br>
+
+
+{% endfor %}
+</div>
+
+<div class="b">
+
+<a href="/uni/{{data.Programmes.0}}"> {{data.Programmes.0}}</a><BR>
+
+<a href="/uni/{{data.Programmes.1}}">{{data.Programmes.1}}</a><br>
+<a href="/uni/{{data.Programmes.2}}">{{data.Programmes.2}}</a><br>
+<a href="/uni/{{data.Programmes.3}}">{{data.Programmes.3}}</a><br>
+<a href="/uni/{{data.Programmes.4}}">{{data.Programmes.4}}</a><br>
+<a href="/uni/{{data.Programmes.5}}">{{data.Programmes.5}}</a><br>
+<a href="/uni/{{data.Programmes.6}}">{{data.Programmes.6}}</a><br>
+<a href="/uni/{{data.Programmes.7}}">{{data.Programmes.7}}</a><br>
+<a href="/uni/{{data.Programmes.8}}">{{data.Programmes.8}}</a><br>
+{{data.exception}} 
+
+</div>
+</div>
+
+{% endblock %}
