@@ -12,5 +12,8 @@ urlpatterns = [
     path('uni/<str:prog>',views.University,name="UNI"),
     path('sidebar',views.sidebar,name="sb"),
     path('menubar',views.menubar,name="mb"),
-    
+    path('chats',views.Chats1,name="Chatss"),
+    path('messages',views.viewChats,name="Chatss"),
+    path('reply/<int:chat_id>',views.Messages1,name="Chatss"),
+    path('likes/<int:message_id>',views.likes,name="s"),
 ]

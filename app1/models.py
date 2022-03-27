@@ -1,3 +1,4 @@
+from email import message
 from email.policy import default
 from django.db import models
 from tensorboard import program
@@ -47,3 +48,24 @@ class Universities(models.Model):
     class Meta:
         db_table='universities'        
 
+
+class Chats(models.Model):
+    chat_id = models.AutoField(primary_key=True)
+    user_id=models.CharField(max_length=200)
+    user_name=models.CharField(default=0,max_length=200)
+    date= models.DateField()  
+    title=models.CharField(default=0,max_length=5000)
+    likes=models.IntegerField(default=0)
+    messages=models.IntegerField(default=0)
+
+    class Meta:
+        db_table='chats'
+
+class Messages(models.Model):
+    message_id = models.AutoField(primary_key=True)
+    chat_id=models.CharField(max_length=200)
+    date = models.DateField()
+    message=models.CharField(max_length=5000)
+    user_id=models.CharField(max_length=200)
+    user_name=models.CharField(default=0,max_length=200)
+    likes=models.IntegerField(default=0)

@@ -1,12 +1,14 @@
 from base64 import decode
+from datetime import datetime,date
 from re import sub
 from django.http import response
 from django.shortcuts import render
 
 from django.shortcuts import render,redirect
+from matplotlib.pyplot import title
 from matplotlib.style import context
 from tensorboard import program
-from app1.models import userData,usersApi,Programmes,Universities
+from app1.models import userData,usersApi,Programmes,Universities,Chats,Messages
 from datetime import date
 from django.db import connection, transaction
 from django.core.mail import send_mail
@@ -84,6 +86,7 @@ def portal(request):
             if usersApi.objects.filter(email=request.POST['email'],password=request.POST['password']).exists():    
 
                 request.session['email']= request.POST['email']
+                print(request.session['email'])
                 email=request.session['email']
                 
                 all=usersApi.objects.get(email=request.POST['email'])
@@ -121,10 +124,79 @@ def University(request,prog):
         return render(request,"uni.html",context)
 
 def sidebar(request):
-     return render(request,"sidebar.html")
-
+    response3=request.session['response2']
+    return render(request,"sidebar.html",{"data":response3})
+   
 
 def menubar(request):
      response2 = request.session['response2']
      context={'data':response2}
      return render(request,"menubar.html",context)
+
+
+
+def Chats1(request):
+    if request.method=='POST':
+        if request.POST.get('title'):
+
+            mail=request.session['email']
+            all=usersApi.objects.get(email=mail)
+            chats=Chats()
+            chats.title=request.POST.get('title')
+            chats.date=datetime(2013,12,25)
+            chats.user_id=all.id
+            chats.user_name=all.username
+            chats.save()
+            print(request.POST.get('title'))
+            chats= Chats.objects.all()
+            return render(request,"viewChats.html",{'chats':chats})
+    return render(request,"login.html")
+
+
+def viewChats(request):
+
+    chats= Chats.objects.all()
+    return render(request,"viewChats.html",{'chats':chats})
+
+
+
+
+def Messages1(request,chat_id):
+    
+    if request.method=='POST':
+        if request.POST.get('message'):
+            mail=request.session['email']
+            all=usersApi.objects.get(email=mail)
+            chats= Chats.objects.get(chat_id=chat_id)
+            
+            message=Messages()
+            message.chat_id=chats.chat_id
+            message.date = datetime(2013,12,25)
+            message.message=request.POST.get('message')
+            message.user_id=all.id
+            message.user_name=all.username
+            message.save()
+            
+            chats= Chats.objects.get(chat_id=chat_id)
+    
+            messages=Messages.objects.filter(chat_id=chat_id)   
+
+            return render(request,"messages.html",{'qn':chats,'mess':messages}) 
+
+    chats= Chats.objects.get(chat_id=chat_id)
+    
+    messages=Messages.objects.filter(chat_id=chat_id) 
+    request.session['chat_id']=chat_id
+    return render(request,"messages.html",{'qn':chats,'mess':messages})
+
+def likes(request,message_id):
+    juloh=Messages.objects.get(message_id=message_id)
+    mes=juloh
+    mes.likes=juloh.likes+1
+    mes.save()
+    chat_id=request.session['chat_id']
+    chats= Chats.objects.get(chat_id=chat_id)
+    messages=Messages.objects.filter(chat_id=chat_id)   
+
+    return render(request,"messages.html",{'qn':chats,'mess':messages})
+
