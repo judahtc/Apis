@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<head>
+
+  <style>
+    ::-webkit-scrollbar {
+      width: 0px;
+      height: 0px;
+  }
+  </style>
+
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- MATERIAL DESIGN ICONIC FONT -->
+  <link rel="stylesheet" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+  
+  <!-- STYLE CSS -->
+  <link rel="stylesheet" href="{% static 'registration/css/style.css'%}">
+
+</head>
+
+
+  <br>
+<center><h4>Simulation Form</h4></center><br>
+    <div class="wrapper" style="padding-top: 1.5%;margin-left: 10%;">
+			<div class="inner" style=" ">
+    <form action="/simulated_recs" method="post" target="ifrr">
+      {% csrf_token %}
+      
+      <div class="form-group form-inline" style="width: 100%;">
+
+        <div class="form-wrapper ">
+        
+          <div class="form-holder" >
+            
+            <input type="text" class="form-control" name="HighSchool" placeholder="High School">
+            <input type="text" class="form-control"  name="strengths" placeholder="Strengths">
+          </div>
+        </div>
+
+     
+      </div>
+      <div class="form-group form-inline">
+        <div class="form-wrapper" >
+       
+          <div class="form-holder" style="margin-right: 10%;">
+            <i class="zmdi zmdi-lock-outline"></i>
+            <input type="text" class="form-control" placeholder="Subject 1" name="subject_1">
+            <input type="text" class="form-control" placeholder="grade" name="grade1">
+          </div>
+        </div>
+
+      </div>
+
+
+
+      <div class="form-group form-inline">
+        <div class="form-wrapper">
+          
+          <div class="form-holder" style="margin-right: 10%;">
+            <i class="zmdi zmdi-lock-outline"></i>
+            <input type="text" class="form-control" placeholder="Subject 2" name="subject_2">
+            <input type="text" class="form-control" placeholder="Grade" name="grade2">
+          </div>
+        </div>
+        
+       
+      </div>
+      <div class="form-group form-inline">
+        <div class="form-wrapper">
+        
+          <div class="form-holder" style="margin-right: 10%;">
+            <i class="zmdi zmdi-lock-outline"></i>
+            <input type="text" class="form-control" placeholder="subject 3" name="subject_3">
+            <input type="text" class="form-control" placeholder="grade" name="grade3">
+          </div>
+        </div>
+       
+      </div>
+
+
+
+
+
+      <div class="form-group">
+        <div class="form-wrapper">
+          <label for="">Passion:</label>
+          <div class="form-holder select">
+            <select name="CareerOption" id="" class="form-control" style="width: 30.5rem;">
+              <option value="Information nad Technology">Information and Technology</option>
+              <option value="Engineering">Engineering</option>
+              <option value="BioSciences">BioSciences</option>
+              <option value="Humanitarians and Arts">Humanitarians and Arts</option>
+              <option value="Accounting and Commerce">Accounting and Commerce</option>
+              <option value="Law">Law</option>
+              <option value="Health Science and Medicine">Health Science and Medicine</option>
+              <option value="Agriculture">Agriculture</option>
+              <option value="Applied Science">Applied Science</option>
+              <option value="Architecture and Survey">Architecture and Survey</option>
+            </select>
+            <i class="zmdi zmdi-pin"></i>
+          </div>
+        </div>
+        <div class="form-wrapper">
+          <label for="">Gender:</label>
+          <div class="form-holder select">
+            <select name="Gender" id="" class="form-control" style="width: 30.5rem;">
+              <option value="M">Male</option>
+              <option value="F">Female</option>
+              <option value="other">Other</option>
+            </select>
+            <i class="zmdi zmdi-face"></i>
+          </div>
+        </div>
+      </div>
+      <div class="form-end">
+        <div class="checkbox">
+          <label>
+            <input type="checkbox"> filled all fields?
+            <span class="checkmark"></span>
+          </label>
+        </div>
+        <div class="button-holder">
+          <button>Simulate</button> <a href="/login" target="_blank">Login?</a>
+        </div>
+        
+      </div>
+    </form>
+    </div>
+    </div>
+     {% endblock %}

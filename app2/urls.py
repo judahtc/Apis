@@ -16,4 +16,7 @@ urlpatterns = [
     path('messages',views.viewChats,name="Chatss"),
     path('reply/<int:chat_id>',views.Messages1,name="Chatss"),
     path('likes/<int:message_id>',views.likes,name="s"),
+    path('simulate',views.simulate,name="sim"),
+    path('simulate_form',views.simulate_form,name="simf"),
+    path('simulated_recs',views.simulated_recs,name="simulated_recs"),
 ]

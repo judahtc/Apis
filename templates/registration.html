@@ -20,24 +20,26 @@
 
 	<body>
 
-		<div class="wrapper" style="background-image: url({% static 'registration/images/juloh.jpg'%});">
-			<div class="inner">
+		<div class="wrapper" style="background-color: #E5E4E2;padding-top: 1.5%;">
+			<div class="inner" style=" 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);border:1px solid gray">
 				<form action="/registration" method="post">
 					{% csrf_token %}
 					<h3>Registration Form</h3>
 					<div class="form-group">
-						<div class="form-wrapper">
-							<label for="university">University:</label>
-							<div class="form-holder">
-								<i class="zmdi zmdi-account-o"></i>
-								<input type="text" class="form-control" name="university">
-							</div>
-						</div>
+
 						<div class="form-wrapper">
 							<label for="">High School:</label>
-							<div class="form-holder">
-								<i style="font-style: normal; font-size: 15px;">@</i>
-								<input type="text" class="form-control" name="HighSchool">
+							<div class="form-holder" style="">
+								
+								<input type="text" class="form-control" name="HighSchool" >
+							</div>
+						</div>
+
+						<div class="form-wrapper">
+							<label for="">Strengths:</label>
+							<div class="form-holder" style="">
+								
+								<input type="text" class="form-control" name="university" >
 							</div>
 						</div>
 					</div>
@@ -100,7 +102,7 @@
 
 					<div class="form-group">
 						<div class="form-wrapper">
-							<label for="">Career Option:</label>
+							<label for="">Passion:</label>
 							<div class="form-holder select">
 								<select name="CareerOption" id="" class="form-control">
 									<option value="Information nad Technology">Information and Technology</option>
@@ -132,7 +134,7 @@
 					<div class="form-end">
 						<div class="checkbox">
 							<label>
-								<input type="checkbox"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
+								<input type="checkbox"> filled all fields?
 								<span class="checkmark"></span>
 							</label>
 						</div>

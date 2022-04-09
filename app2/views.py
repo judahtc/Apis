@@ -44,10 +44,9 @@ def signup(request):
     
 def registration(request):
     if request.method=='POST':
-        if request.POST.get('university'):
+        if request.POST.get('HighSchool'):
             mail=request.session['email_session']
             user=userData()
-            
             user.email=mail
             user.university=request.POST.get('university')
             user.HighSchool	=request.POST.get('HighSchool')
@@ -55,7 +54,6 @@ def registration(request):
             s2=request.POST.get('Subject_2')
             s3=request.POST.get('Subject_3')
             subs=s1+', '+s2+', '+s3
-            print(subs)
             user.Subjects=subs
             user.Subject1=request.POST.get('Subject1')
             user.Subject2=request.POST.get('Subject2')
@@ -200,3 +198,36 @@ def likes(request,message_id):
 
     return render(request,"messages.html",{'qn':chats,'mess':messages})
 
+def simulate(request):
+
+    return render(request,"simulate_iframe.html")
+def simulate_form(request):
+
+    return render(request,"simulate.html")
+
+def simulated_recs(request):
+    if request.method=='POST':
+        if request.POST.get('HighSchool'):
+          
+            s1=request.POST.get('subject_1')
+            s2=request.POST.get('subject_2')
+            s3=request.POST.get('subject_3')
+            subs=s1+', '+s2+', '+s3
+            
+            Subject1=request.POST.get('grade1')
+            Subject2=request.POST.get('grade2')
+            Subject3=request.POST.get('grade3')
+        
+            CareerOption=request.POST.get('CareerOption')
+            
+            total=int(Subject1)+int(Subject2)+int(Subject3)
+            co=CareerOption
+            mci=subs
+            url="http://127.0.0.1:8000/recommend/"
+            final_url= url+str(mci)+str(co)+str(total)
+            print(final_url)
+                    
+            response1 = requests.get(final_url)
+            request.session['response2']=response1.json()
+            return render(request,"simulate2.html",{"data":response1.json})        
+    return render(request,"simulate2.html")
