@@ -1,5 +1,6 @@
 from base64 import decode
 from datetime import datetime,date
+from os import access
 from re import sub
 from django.http import response
 from django.shortcuts import render
@@ -36,9 +37,12 @@ def signup(request):
             user.username=request.POST.get('username')
             user.password=request.POST.get('password')
             user.email=request.POST.get('email')
+            user.access_role=request.POST.get('access_role')
             user.save()
-            
-            return render(request,"registration.html") 
+            if request.POST.get('access_role')=='student':
+                return render(request,"registration.html") 
+            else:
+                return render(request,"index.html")    
     return render(request,"signup.html")
 
     
@@ -82,27 +86,25 @@ def portal(request):
     try:
         if request.method=='POST':
             if usersApi.objects.filter(email=request.POST['email'],password=request.POST['password']).exists():    
-
                 request.session['email']= request.POST['email']
-                print(request.session['email'])
                 email=request.session['email']
-                
                 all=usersApi.objects.get(email=request.POST['email'])
-
-
-                userd=userData.objects.get(email=email)
-                total=int(userd.Subject1)+int(userd.Subject2)+int(userd.Subject3)
-                co=userd.CareerOption
-                mci=userd.Subjects
-                url="http://127.0.0.1:8000/recommend/"
-                final_url= url+str(mci)+str(co)+str(total)
-                
-                response1 = requests.get(final_url)
-                request.session['response2']=response1.json()
-                return render(request,"sidebar.html",{"data":response1.json})
+                if usersApi.objects.filter(access_role='student',email=request.POST['email']):
+                    userd=userData.objects.get(email=email)
+                    total=int(userd.Subject1)+int(userd.Subject2)+int(userd.Subject3)
+                    co=userd.CareerOption
+                    mci=userd.Subjects
+                    url="http://127.0.0.1:8000/recommend/"
+                    final_url= url+str(mci)+str(co)+str(total)
+                    response1 = requests.get(final_url)
+                    request.session['response2']=response1.json()
+                    return render(request,"sidebar.html",{"data":response1.json})
+                else:
+                    chats= Chats.objects.all()
+                    return render(request,"viewChats.html",{'chats':chats})
             else:
-                context={'data':"invalid username or password"}  
-                return render(request,"index.html",context)  
+                    context={'data':"invalid username or password"}  
+                    return render(request,"index.html",context)  
     except:
         ex="waiting....."
         context={'ex':ex}
@@ -173,6 +175,7 @@ def Messages1(request,chat_id):
             message.message=request.POST.get('message')
             message.user_id=all.id
             message.user_name=all.username
+            message.access_role=all.access_role
             message.save()
             
             chats= Chats.objects.get(chat_id=chat_id)
@@ -231,3 +234,15 @@ def simulated_recs(request):
             request.session['response2']=response1.json()
             return render(request,"simulate2.html",{"data":response1.json})        
     return render(request,"simulate2.html")
+
+
+def expect_profile(request,uname):
+    user=usersApi.objects.get(username=uname)
+    return render(request,"expect_profile.html",{"user":user})
+
+
+def logout(request):
+    
+    del request.session['email']
+    
+    return render(request,"index.html")

@@ -5,7 +5,7 @@ from rest_framework import serializers
 class usersApiSerializer(serializers.ModelSerializer):
     class Meta:
         model=usersApi
-        fields = ('email', 'password', 'username')
+        fields = ('email', 'password', 'username','access_role')
 
 
 class userDataSerializer(serializers.ModelSerializer):

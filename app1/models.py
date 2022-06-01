@@ -7,6 +7,7 @@ class usersApi(models.Model):
     username=models.CharField(max_length=200)
     password=models.CharField(max_length=200)
     email=models.CharField(max_length=200)
+    access_role=models.CharField(default='student',max_length=200)
 
     class Meta:
         db_table='usersApi'
@@ -68,4 +69,5 @@ class Messages(models.Model):
     message=models.CharField(max_length=5000)
     user_id=models.CharField(max_length=200)
     user_name=models.CharField(default=0,max_length=200)
+    access_role=models.CharField(default='student',max_length=200)
     likes=models.IntegerField(default=0)

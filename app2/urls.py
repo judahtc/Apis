@@ -19,4 +19,6 @@ urlpatterns = [
     path('simulate',views.simulate,name="sim"),
     path('simulate_form',views.simulate_form,name="simf"),
     path('simulated_recs',views.simulated_recs,name="simulated_recs"),
+    path('expect_profile/<str:uname>',views.expect_profile,name="expect_profile"),
+    path('logout',views.logout,name="logout"),
 ]
