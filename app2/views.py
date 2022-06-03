@@ -40,7 +40,7 @@ def signup(request):
             user.access_role=request.POST.get('access_role')
             user.save()
             if request.POST.get('access_role')=='student':
-                return render(request,"registration.html") 
+                return render(request,"reg.html") 
             else:
                 return render(request,"index.html")    
     return render(request,"signup.html")
@@ -69,7 +69,7 @@ def registration(request):
             user.save()
             return render(request,"index.html")
 
-    return render(request,"registration.html")
+    return render(request,"reg.html")
 
 
 def login(request):
