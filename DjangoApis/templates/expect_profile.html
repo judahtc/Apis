@@ -1,0 +1,86 @@
+
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+
+      <button type="button" id="sidebarCollapse" class="btn btn-primary">
+        <i class="fa fa-bars"></i>
+        <span class="sr-only">Toggle Menu</span>
+      </button>
+      <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fa fa-bars"></i>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="nav navbar-nav ml-auto">
+          <li class="nav-item active">
+              
+              <a class="nav-link" href="/menubar" target="iframe1">Home</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="https://app.powerbi.com/reportEmbed?reportId=252bb183-7071-4b79-9fc4-e3ed41feef43&autoAuth=true&ctid=f68064bc-0e02-4771-a46b-96a821b21c3d&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLXNvdXRoLWFmcmljYS1ub3J0aC1hLXByaW1hcnktcmVkaXJlY3QuYW5hbHlzaXMud2luZG93cy5uZXQvIn0%3D" target="_self">Analytics</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="/messages">Community</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="login" target="_top">Log out</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+
+
+<div class="container bootstrap-snippet header-container">
+    <div class="bg-white">
+      <div class="container py-5">
+        <div class="media col-md-10 col-lg-8 col-xl-7 p-0 my-4 mx-auto">
+          <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt class="d-block ui-w-100 rounded-circle">
+          <div class="media-body ml-5">
+            <h4 class="font-weight-bold">{{user.username}}</h4><br>
+            <hr></hr>
+            <span style="font-weight:bold ;">Role:</span><b >{{user.access_role}}</b><br>
+            <hr></hr>
+            <span style="font-weight:bold ;">Profession/Programme:</span><br><hr></hr>
+            <span style="font-weight:bold ;">A Level combination:</span><br><hr></hr>
+            <div class="text-muted mb-4">
+            <h5>Description</h5><br>
+              Lorem ipsum dolor sit amet, nibh suavitate qualisque ut nam. Ad harum primis electram duo, porro principes ei has.
+            </div>
+            <a href="#" class="d-inline-block text-dark">
+              <strong>0</strong>
+              <span class="text-muted">followers</span>
+            </a>
+            <a href="#" class="d-inline-block text-dark ml-3">
+              <strong>0</strong>
+              <span class="text-muted">following</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <hr class="m-0">
+      <ul class="nav nav-tabs tabs-alt justify-content-center">
+        <li class="nav-item">
+          <a class="nav-link py-4 active" href="#">Posts</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link py-4" href="#">Likes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link py-4" href="#">Followers</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link py-4" href="#">Following</a>
+        </li>
+      </ul>
+    </div>
+</div>
+{% endblock%}

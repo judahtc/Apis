@@ -1,0 +1,40 @@
+
+
+{% extends 'base.html' %}
+{% block content %}
+
+
+<head><style>
+    ::-webkit-scrollbar {
+      width: 0px;
+      height: 0px;
+  }
+  </style></head>
+<div id="content" class="p-4 p-md-5" style="width: 25em;">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <h2 class="mb-4">{{prog}}{{ex1}}</h2>
+        
+      
+    </nav>
+<div>
+      <div class="card bg-light" style="width: 18.5rem; ">
+    
+        <div class="card-body">
+            
+    
+      {% for uni in uni %}
+      
+    <tr>
+      <td>{{uni.university_name}}</td> <td><a class="btn btn-light" role="button" style="margin-left: 20px;color:blue;" href="{{uni.university_url}}" target="_blank">visit</a></td><br>  
+    </tr>
+      
+      {% endfor %}
+      <b style="color: gray;">{{ex}}</b>
+    </div>
+     
+        </div>
+      </div>
+    </div>
+
+{% endblock %}

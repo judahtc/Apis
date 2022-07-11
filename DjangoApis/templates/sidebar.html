@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>Sidebar 01</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+		
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		
+<style>
+  ::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+}
+</style>
+
+
+  </head>
+  <body>
+		
+		<div class="wrapper d-flex align-items-stretch">
+			<nav id="sidebar">
+				<div class="p-4 pt-5">
+		  		<a href="#" class="img logo rounded-circle mb-3" style="background-image: url({% static 'sidebar/images/juloh.jpg' %});"></a>
+				<center style="color: ;white"><span style="font-weight: bold;margin-bottom: 25px;">{{username}}</span></center>
+	        <ul class="list-unstyled components mb-5 mt-5">
+	          <li class="">
+	            <a href="/menubar" target="iframe1">Recommendations</a>
+
+	          </li>
+	          <li>
+	              <a href="#">Simulation</a>
+	          </li>
+	          <li>
+              <a href="https://app.powerbi.com/reportEmbed?reportId=252bb183-7071-4b79-9fc4-e3ed41feef43&autoAuth=true&ctid=f68064bc-0e02-4771-a46b-96a821b21c3d&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLXNvdXRoLWFmcmljYS1ub3J0aC1hLXByaW1hcnktcmVkaXJlY3QuYW5hbHlzaXMud2luZG93cy5uZXQvIn0%3D" target="iframe1" >Analytics</a>
+              
+	          </li>
+
+	          <li>
+              <a href="http://www.google.com" target="iframe1">chat</a>
+	          </li>
+	        </ul>
+<br><br><br><br><br>
+	        <div class="footer">
+	        	<p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+						  Copyright &copy;<script>document.write(new Date().getFullYear());</script> NUST(N0182078J) 				  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+	        </div>
+
+	      </div>
+    	</nav>
+
+        <!-- Page Content  -->
+        <iframe src="menubar" height="640" width="300" title="Iframe"  name="iframe1"></iframe>
+      
+		</div>
+
+    <script src="{% static 'sidebar/js/jquery.min.js' %}"></script>
+    <script src="{% static 'sidebar/js/popper.js' %}"></script>
+    <script src="{% static 'sidebar/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'sidebar/js/main.js' %}"></script>
+  </body>
+</html>
+
+{% endblock  %}

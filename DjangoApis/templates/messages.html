@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<body"> <B>{{qn.user_name}}:</B><br>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+     
+        <h2 class="mb-4" style="margin-right: 20px;">{{qn.title}}</h2>
+        
+     
+    </nav>
+<div style="background-color: #E5E4E2;">
+
+<br>
+{% for mess in mess %}
+
+<div class="card" style="width: 60rem; ">
+    
+    <div class="card-body">
+      <b><a href="/expect_profile/{{mess.user_name}}" href="/menubar" target="iframe1" style="font-size:small">{{mess.user_name}}</a></b>({{mess.access_role}}) :{{mess.message}}<br><a href="/likes/{{mess.message_id}}" style="margin-right: 20px;">like</a><span style="font-size: 60%;"> {{mess.likes}}</span>
+
+    </div>
+  </div>
+
+<hr></hr>
+{% endfor %}
+ 
+
+<form method="POST" action="/reply/{{qn.chat_id}}">
+   {% csrf_token %}
+    <div class="form-group">
+        <textArea type="" placeholder="reply..." name="message" class="form-control" rows="3"></textArea>
+    </div>
+
+    <button class="btn  btn-primary" type="submit">SEND</button><BR><BR>
+    <center><span> {{data}}</span></center>
+
+</form>
+</div>
+</body>
+{% endblock %}

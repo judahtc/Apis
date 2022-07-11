@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<head>
+
+  <style>
+    ::-webkit-scrollbar {
+      width: 0px;
+      height: 0px;
+  }
+  </style>
+
+
+<head>
+
+
+</head>
+</head>
+<div id="content" class="p-4 p-md-5">
+
+      
+    <h2 class="mb-4">Recommendations</h2>
+    <div class="progress progress-striped active">
+      <div class="bar" style="width: 40%;"></div>
+    </div>
+    <div class="all" style="display: flex;">
+    <div class="onemenu">
+
+<br>
+
+  <div class="card" style="width: 30rem; ">
+    
+    <div class="card-body">
+      <a  class="stretched-link" href="/uni/{{data.Programmes.0}}" target="univ"> {{data.Programmes.0}}</a>
+
+    </div>
+  </div>
+<br>
+  <div class="card" style="width: 30rem; ">
+    
+    <div class="card-body">
+      <a  class="stretched-link" href="/uni/{{data.Programmes.1}}" target="univ"> {{data.Programmes.1}}</a>
+
+    </div>
+  </div>
+
+<br>
+  <div class="card" style="width: 30rem; ">
+    
+    <div class="card-body">
+      <a  class="stretched-link" href="/uni/{{data.Programmes.2}}" target="univ"> {{data.Programmes.2}}</a>
+
+    </div>
+  </div>
+  <br>
+  <div class="card" style="width: 30rem; ">
+    
+    <div class="card-body">
+      <a  class="stretched-link" href="/uni/{{data.Programmes.3}}" target="univ"> {{data.Programmes.3}}</a>
+
+    </div>
+  </div>
+
+  <br>
+  <div class="card" style="width: 30rem; ">
+    
+    <div class="card-body">
+      <a  class="stretched-link" href="/uni/{{data.Programmes.4}}" target="univ"> {{data.Programmes.4}}</a>
+
+    </div>
+  </div>
+
+  <br>
+  
+  <br>
+
+ 
+    <a href="#"><i class="fa-solid fa-user"></i></a>
+
+
+<BR>
+
+{{data.exception}} 
+
+
+</div>
+  
+  <div class="ifr">
+  <iframe src="" frameborder="0" height="440" width="25em" title="uni" name="univ" style="margin-left: 30px;"></iframe>
+</div>
+</div>
+</div>
+<script src="https://use.fontawesome.com/1ac8e996a6.js"></script>
+  {% endblock %}
